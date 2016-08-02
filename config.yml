@@ -1,0 +1,11 @@
+---
+# THEME GEM USAGE - visit https://github.com/Shopify/shopify_theme
+# Get your api_key and password at your-url.myshopify.com/admin/apps/private
+
+# example code
+:api_key: c8176011b604313095e6f7647b208948
+:password: 812c57bb098bafc9eb5a7ba67b9c1858
+:store: sutro-2.myshopify.com
+:theme_id: 114086913
+:ignore_files:
+ 

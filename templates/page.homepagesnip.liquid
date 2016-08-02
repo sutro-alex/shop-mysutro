@@ -1,0 +1,85 @@
+{% layout none %}
+
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+   	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  	<link rel="shortcut icon" href="{{'favicon.png' | asset_url}}" type="image/png" /> 
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+
+<link href="//cdn.shopify.com/s/files/1/1372/5049/t/2/assets/owl.carousel.css?13681594123522126895" rel="stylesheet" type="text/css" media="all"/>
+<link href="//cdn.shopify.com/s/files/1/1372/5049/t/2/assets/theme-global.scss.css?13681594123522126895" rel="stylesheet" type="text/css" media="all"/>
+<link href="//cdn.shopify.com/s/files/1/1372/5049/t/2/assets/theme-master.scss.css?13681594123522126895" rel="stylesheet" type="text/css" media="all"/>
+   
+</head>
+
+<body>
+
+<!-- Main Content -->
+<div id="main-content" class="wrapper clearfix">
+       
+
+{% if settings.homeblog_active and blogs[settings.homeblog_select].articles.size > 0 %}
+<section class="homeblog-block">
+  <div class="homeblog_wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="homeblog_inner">
+          <div class="home-title"><h4>Pool Tips & Tricks</h4></div>
+          <div class="homeblog-content block-slider"> 
+            {% assign articles = blogs[settings.homeblog_select].articles %}
+            {% for article in articles limit:settings.homeblog_limit %}
+            <div class="homeblog-item">
+              <div class="homeblog-item-inner">
+                <div class="homeblog-top">
+                  <a class="homeblog-img" target="_parent" href="{{ article.url }}">
+                    <img src="{{article.image | img_url: 'master'}}" alt="" />
+                  </a>
+                  <!--
+                  <span class="homeblog-date">
+                    {{article.published_at | date: '%d'}}
+                    <small>{{article.published_at | date: '%b'}}</small>
+                  </span>  --->
+                </div>
+                <div class="homeblog-bottom">
+                  <a href="{{ article.url }}" target="_parent" class="homeblog-title clearfix">{{ article.title }}</a>
+                  <div class="homeblog-desc">{{ article.content | strip_html | truncatewords: 25 }}</div>
+                  <div class="homeblog-action"><a href="{{ article.url }}"><i class="fa fa-angle-double-right"></i> {{ settings.homeblog_action }}</a></div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+      
+    </div>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+  <script src="//cdn.shopify.com/s/assets/themes_support/api.jquery-b90ee9a5604bc68b2f4a3af86b4551207834575e264152eac4822d0b60e0c0d5.js" type="text/javascript"></script> 
+
+
+
+
+  <script src="//cdn.shopify.com/s/files/1/1372/5049/t/2/assets/modernizr.js?13681594123522126895" type="text/javascript"></script> 
+  <script src="//cdn.shopify.com/s/files/1/1372/5049/t/2/assets/owl.carousel.min.js?13681594123522126895" type="text/javascript"></script>
+  <script src="//cdn.shopify.com/s/files/1/1372/5049/t/2/assets/cs-everything.script.js?13681594123522126895" type="text/javascript"></script>
+  
+
+</body>
+</html>
+
+
